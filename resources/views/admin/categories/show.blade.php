@@ -42,6 +42,8 @@
                             </div>
                             <!-- /.card-body -->
                         </div>
+                        <a href="{{ route('admin.category.edit', $category->id) }}" class="btn
+                        btn-primary">Редактировать</a>
                     </div>
                     <div></div>
                 </div>

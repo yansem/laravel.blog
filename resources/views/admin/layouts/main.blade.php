@@ -43,18 +43,8 @@
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
-
-        <!-- Sidebar -->
-        <div class="sidebar">
-
-        </div>
-        <!-- /.sidebar -->
-    </aside>
-
-    <!-- Content Wrapper. Contains page content -->
+    @include('admin.includes.sidebar')
     @yield('content')
-    <!-- /.content-wrapper -->
     <footer class="main-footer">
         <strong>Blog</strong>
     </footer>

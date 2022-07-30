@@ -31,7 +31,7 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Название</th>
-                                        <th colspan="2" class="text-center">Действие</th>
+                                        <th colspan="3" class="text-center">Действие</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -44,7 +44,18 @@
                                                         class="fa fa-eye"></i></a>
                                             </td>
                                             <td class="text-center">
-                                                <a href="{{ route('admin.category.edit', $category->id) }}"><i class="fa fa-pen"></i></a>
+                                                <a href="{{ route('admin.category.edit', $category->id) }}"><i
+                                                        class="fa fa-pen text-success"></i></a>
+                                            </td>
+                                            <td class="text-center">
+                                                <form action="{{ route('admin.category.destroy', $category->id) }}"
+                                                      method="post">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button type="submit" class="border-0 bg-transparent"><i class="fas fa-times
+                                                    text-danger"></i></button>
+
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach

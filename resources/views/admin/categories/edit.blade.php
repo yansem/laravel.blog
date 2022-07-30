@@ -35,7 +35,7 @@
                                     @enderror
                                 </div>
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Изменить</button>
+                                    <button type="submit" class="btn btn-success">Обновить</button>
                                 </div>
                             </form>
                         </div>

@@ -43,7 +43,12 @@
                             <!-- /.card-body -->
                         </div>
                         <a href="{{ route('admin.category.edit', $category->id) }}" class="btn
-                        btn-primary">Редактировать</a>
+                        btn-success">Редактировать</a>
+                        <form action="{{ route('admin.category.destroy', $category->id) }}" method="post">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="btn btn-danger mt-2">Удалить</button>
+                        </form>
                     </div>
                     <div></div>
                 </div>

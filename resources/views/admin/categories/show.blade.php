@@ -22,27 +22,21 @@
                     <div class="col-6">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Категории</h3>
+                                <h3 class="card-title">{{ $category->title }}</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body table-responsive p-0">
                                 <table class="table table-hover text-nowrap">
-                                    <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Название</th>
-                                        <th>Действие</th>
-                                    </tr>
-                                    </thead>
                                     <tbody>
-                                    @foreach($categories as $category)
                                         <tr>
+                                            <td>ID</td>
                                             <td>{{ $category->id }}</td>
-                                            <td>{{ $category->title }}</td>
-                                            <td><a href="{{ route('admin.category.show', $category->id) }}"><i
-                                                        class="fa fa-eye"></i></a></td>
                                         </tr>
-                                    @endforeach
+                                        <tr>
+                                            <td>Название</td>
+                                            <td>{{ $category->title }}</td>
+                                        </tr>
+
                                     </tbody>
                                 </table>
                             </div>
@@ -51,7 +45,6 @@
                     </div>
                     <div></div>
                 </div>
-                <a href="{{ route('admin.category.create') }}" class="btn btn-primary">Создать</a>
             </div>
         </section>
 

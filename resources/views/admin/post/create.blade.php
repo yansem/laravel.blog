@@ -28,19 +28,21 @@
                                         <label for="title">Название поста</label>
                                         <input type="text" class="form-control" id="title" name="title"
                                                placeholder="Введите название поста" value="{{ old('title') }}">
+                                        @error('title')
+                                        <p class="text-danger">{{ $message }}</p>
+                                        @enderror
                                     </div>
-                                    @error('title')
-                                    <p class="text-danger">{{ $message }}</p>
-                                    @enderror
+
                                     <div class="form-group">
                                         <label for="content">Контент</label>
                                         <textarea class="form-control" id="summernote" name="content">
                                             {{ old('content') }}
                                         </textarea>
+                                        @error('content')
+                                        <p class="text-danger">{{ $message }}</p>
+                                        @enderror
                                     </div>
-                                    @error('content')
-                                    <p class="text-danger">{{ $message }}</p>
-                                    @enderror
+
                                     <div class="form-group">
                                         <label for="preview_image">Изображение для анонса</label>
                                         <div class="input-group">
@@ -54,10 +56,11 @@
                                                 <span class="input-group-text">Загрузить</span>
                                             </div>
                                         </div>
+                                        @error('preview_image')
+                                        <p class="text-danger">{{ $message }}</p>
+                                        @enderror
                                     </div>
-                                    @error('preview_image')
-                                    <p class="text-danger">{{ $message }}</p>
-                                    @enderror
+
                                     <div class="form-group">
                                         <label for="main_image">Главное изображение</label>
                                         <div class="input-group">
@@ -70,10 +73,25 @@
                                                 <span class="input-group-text">Загрузить</span>
                                             </div>
                                         </div>
+                                        @error('main_image')
+                                        <p class="text-danger">{{ $message }}</p>
+                                        @enderror
                                     </div>
-                                    @error('main_image')
-                                    <p class="text-danger">{{ $message }}</p>
-                                    @enderror
+                                    <div class="form-group">
+                                        <label>Select</label>
+                                        <select class="form-control" name="category_id">
+                                            @foreach($categories as $category)
+                                                <option value="{{ $category->id }}"
+                                                {{ $category->id == old('category_id') ? 'selected' : '' }}>
+                                                    {{ $category->title }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                        @error('category_id')
+                                        <p class="text-danger">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+
                                 </div>
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary">Создать</button>

@@ -18,6 +18,7 @@
         </div>
         <section class="content">
             <div class="container-fluid">
+                <a href="{{ route('admin.post.create') }}" class="btn btn-primary mb-3">Создать</a>
                 <div class="row">
                     <div class="col-6">
                         <div class="card">
@@ -67,7 +68,6 @@
                     </div>
                     <div></div>
                 </div>
-                <a href="{{ route('admin.post.create') }}" class="btn btn-primary">Создать</a>
             </div>
         </section>
 

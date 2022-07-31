@@ -78,11 +78,11 @@
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label>Select</label>
+                                        <label>Категория</label>
                                         <select class="form-control" name="category_id">
                                             @foreach($categories as $category)
                                                 <option value="{{ $category->id }}"
-                                                {{ $category->id == old('category_id') ? 'selected' : '' }}>
+                                                    {{ $category->id == old('category_id') ? 'selected' : '' }}>
                                                     {{ $category->title }}
                                                 </option>
                                             @endforeach
@@ -90,6 +90,22 @@
                                         @error('category_id')
                                         <p class="text-danger">{{ $message }}</p>
                                         @enderror
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Теги</label>
+                                        <select name="tag_ids[]" class="select2" multiple="multiple"
+                                                data-placeholder="Выберите теги" style="width: 100%;">
+                                            @foreach($tags as $tag)
+                                                <option value="{{ $tag->id }}"
+                                                    {{ is_array(old('tag_ids')) && in_array($tag->id, old
+                                                    ('tag_ids')) ?
+                                                    'selected' : '' }}
+                                                >
+
+                                                    {{ $tag->title }}
+                                                </option>
+                                            @endforeach
+                                        </select>
                                     </div>
 
                                 </div>

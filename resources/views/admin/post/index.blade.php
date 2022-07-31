@@ -35,20 +35,20 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($tags as $tag)
+                                    @foreach($posts as $post)
                                         <tr>
-                                            <td>{{ $tag->id }}</td>
-                                            <td>{{ $tag->title }}</td>
+                                            <td>{{ $post->id }}</td>
+                                            <td>{{ $post->title }}</td>
                                             <td class="text-center">
-                                                <a href="{{ route('admin.tag.show', $tag->id) }}"><i
+                                                <a href="{{ route('admin.post.show', $post->id) }}"><i
                                                         class="fa fa-eye"></i></a>
                                             </td>
                                             <td class="text-center">
-                                                <a href="{{ route('admin.tag.edit', $tag->id) }}"><i
+                                                <a href="{{ route('admin.post.edit', $post->id) }}"><i
                                                         class="fa fa-pen text-success"></i></a>
                                             </td>
                                             <td class="text-center">
-                                                <form action="{{ route('admin.tag.destroy', $tag->id) }}"
+                                                <form action="{{ route('admin.post.destroy', $post->id) }}"
                                                       method="post">
                                                     @csrf
                                                     @method('delete')
@@ -67,7 +67,7 @@
                     </div>
                     <div></div>
                 </div>
-                <a href="{{ route('admin.tag.create') }}" class="btn btn-primary">Создать</a>
+                <a href="{{ route('admin.post.create') }}" class="btn btn-primary">Создать</a>
             </div>
         </section>
 

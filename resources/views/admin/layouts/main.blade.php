@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ asset('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback') }}">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.min.css') }}">
     <!-- Ionicons -->
     <link rel="stylesheet" href="{{ asset('https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css') }}">
     <!-- Tempusdominus Bootstrap 4 -->
@@ -67,6 +68,8 @@
 </script>
 <!-- Bootstrap 4 -->
 <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('plugins/summernote/summernote-bs4.min.js') }}"></script>
+<script src="{{ asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
 <!-- ChartJS -->
 <!-- Sparkline -->
 <!-- JQVMap -->
@@ -82,5 +85,23 @@
 <script src="{{ asset('dist/js/adminlte.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script>
+    $(document).ready(function() {
+        $('#summernote').summernote({
+            toolbar: [
+                // [groupName, [list of button]]
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['font', ['strikethrough', 'superscript', 'subscript']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']]
+            ]
+        });
+        $(function () {
+            bsCustomFileInput.init();
+        });
+    });
+</script>
 </body>
 </html>

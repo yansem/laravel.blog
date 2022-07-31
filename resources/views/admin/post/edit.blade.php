@@ -28,7 +28,9 @@
                                     <div class="form-group">
                                         <label for="title">Название поста</label>
                                         <input type="text" class="form-control" id="title" name="title"
-                                               placeholder="Введите название поста" value="{{ $post->title }}">
+                                               placeholder="Введите название поста" value="{{ old('title', 
+                                               $post->title)
+                                               }}">
                                         @error('title')
                                         <p class="text-danger">{{ $message }}</p>
                                         @enderror
@@ -45,7 +47,8 @@
                                     </div>
                                     <div class="form-group">
                                         <div>
-                                            <img src="{{ asset('storage/' . $post->preview_image) }}" alt="" class="w-25">
+                                            <img src="{{ Storage::url($post->preview_image) }}"
+                                                 alt="" class="w-25">
                                         </div>
                                         <label for="preview_image">Изображение для анонса</label>
                                         <div class="input-group">
@@ -66,7 +69,7 @@
 
                                     <div class="form-group">
                                         <div>
-                                            <img src="{{ asset('storage/' . $post->main_image) }}" alt="" class="w-25">
+                                            <img src="{{ Storage::url($post->main_image) }}" alt="" class="w-25">
                                         </div>
                                         <label for="main_image">Главное изображение</label>
                                         <div class="input-group">

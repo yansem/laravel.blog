@@ -27,4 +27,13 @@ class StoreRequest extends FormRequest
             'title' => 'required|unique:categories,deleted_at,NULL|string'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'title.required' => 'Поле не обходимо для заполнения',
+            'title.unique' => 'Категория с таким именем уже существует',
+            'title.string' => 'Название должно быть строкового типа',
+        ];
+    }
 }

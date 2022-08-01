@@ -27,4 +27,13 @@ class StoreRequest extends FormRequest
             'title' => 'required|unique:tags,deleted_at,NULL|string'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'title.required' => 'Поле не обходимо для заполнения',
+            'title.unique' => 'Тег с таким именем уже существует',
+            'title.string' => 'Название должно быть строкового типа',
+        ];
+    }
 }

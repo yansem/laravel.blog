@@ -48,6 +48,20 @@
                                     <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
+                                <div class="form-group">
+                                    <label>Роль</label>
+                                    <select class="form-control" name="role">
+                                        @foreach($roles as $id => $role)
+                                            <option value="{{ $id }}"
+                                                {{ $id == old('role') ? 'selected' : '' }}>
+                                                {{ $role }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    @error('role')
+                                    <p class="text-danger">{{ $message }}</p>
+                                    @enderror
+                                </div>
 
                             </div>
                             <div class="card-footer">

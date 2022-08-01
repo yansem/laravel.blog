@@ -25,8 +25,9 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:users|string',
+            'name' => 'required|string|unique:users,name,' . $this->user->id,
             'email' => 'required|email|unique:users,email,' . $this->user->id,
+            'role' => 'required|integer',
             ];
     }
 
@@ -39,6 +40,8 @@ class UpdateRequest extends FormRequest
             'email.required' => 'Поле необходимо для заполнения',
             'email.unique' => 'Пользователь с таким email уже существует',
             'email.email' => 'Неверный формат email',
+            'role.required' => 'Поле необходимо для заполнения',
+            'role.integer' => 'Передаваемое значение должно быть числом',
         ];
     }
 }

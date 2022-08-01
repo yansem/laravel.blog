@@ -24,7 +24,7 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|unique:tags,deleted_at,NULL|string'
+            'title' => 'required|unique:tags|string'
         ];
     }
 
@@ -32,7 +32,7 @@ class StoreRequest extends FormRequest
     {
         return [
             'title.required' => 'Поле не обходимо для заполнения',
-            'title.unique' => 'Тег с таким именем уже существует',
+            'title.unique' => 'Тег с таким названием уже существует',
             'title.string' => 'Название должно быть строкового типа',
         ];
     }

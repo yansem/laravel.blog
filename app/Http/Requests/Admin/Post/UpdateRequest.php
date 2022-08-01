@@ -24,7 +24,7 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|unique:posts,deleted_at,NULL|string',
+            'title' => 'required|unique:posts',
             'content' => 'required|string',
             'preview_image' => 'nullable|file',
             'main_image' => 'nullable|file',
@@ -38,7 +38,7 @@ class UpdateRequest extends FormRequest
     {
         return [
             'title.required' => 'Поле не обходимо для заполнения',
-            'title.unique' => 'Пост с таким именем уже существует',
+            'title.unique' => 'Пост с таким названием уже существует',
             'title.string' => 'Название должно быть строкового типа',
             'content.required' => 'Поле не обходимо для заполнения',
             'content.string' => 'Контент должен быть строкового типа',

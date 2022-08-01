@@ -26,11 +26,11 @@
                                 @method('patch')
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="title">Имя</label>
-                                        <input type="text" class="form-control" id="title" name="title"
+                                        <label for="name">Имя</label>
+                                        <input type="text" class="form-control" id="name" name="name"
                                                placeholder="Введите имя пользователя" value="{{ old('name',
                                                $user->name) }}">
-                                        @error('title')
+                                        @error('name')
                                         <p class="text-danger">{{ $message }}</p>
                                         @enderror
                                     </div>

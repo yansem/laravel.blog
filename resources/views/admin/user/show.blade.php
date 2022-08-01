@@ -22,7 +22,7 @@
                     <div class="col-6">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">{{ $category->title }}</h3>
+                                <h3 class="card-title">{{ $user->title }}</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body table-responsive p-0">
@@ -30,11 +30,11 @@
                                     <tbody>
                                         <tr>
                                             <td>ID</td>
-                                            <td>{{ $category->id }}</td>
+                                            <td>{{ $user->id }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Название</td>
-                                            <td>{{ $category->title }}</td>
+                                            <td>Имя</td>
+                                            <td>{{ $user->name }}</td>
                                         </tr>
 
                                     </tbody>
@@ -42,9 +42,9 @@
                             </div>
                             <!-- /.card-body -->
                         </div>
-                        <a href="{{ route('admin.category.edit', $category->id) }}" class="btn
+                        <a href="{{ route('admin.user.edit', $user->id) }}" class="btn
                         btn-success">Редактировать</a>
-                        <form action="{{ route('admin.category.destroy', $category->id) }}" method="post">
+                        <form action="{{ route('admin.user.destroy', $user->id) }}" method="post">
                             @csrf
                             @method('delete')
                             <button type="submit" class="btn btn-danger mt-2">Удалить</button>

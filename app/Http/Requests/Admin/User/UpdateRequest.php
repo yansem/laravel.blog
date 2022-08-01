@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Admin\User;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateRequest extends FormRequest
 {
@@ -25,9 +26,8 @@ class UpdateRequest extends FormRequest
     {
         return [
             'name' => 'required|unique:users|string',
-            'email' => 'required|unique:users|email',
-            'password' => 'required|string'
-        ];
+            'email' => 'required|email|unique:users,email,' . $this->user->id,
+            ];
     }
 
     public function messages()
@@ -38,9 +38,7 @@ class UpdateRequest extends FormRequest
             'name.string' => 'Поле должно быть строкового типа',
             'email.required' => 'Поле необходимо для заполнения',
             'email.unique' => 'Пользователь с таким email уже существует',
-            'email.string' => 'Поле должно быть строкового типа',
-            'password.required' => 'Поле необходимо для заполнения',
-            'password.unique' => 'Поле должно быть строкового типа',
+            'email.email' => 'Неверный формат email',
         ];
     }
 }

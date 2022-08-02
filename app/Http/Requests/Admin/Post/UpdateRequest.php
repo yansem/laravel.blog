@@ -24,7 +24,7 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|unique:posts',
+            'title' => 'required|unique:posts,title,' . $this->post->id,
             'content' => 'required|string',
             'preview_image' => 'nullable|file',
             'main_image' => 'nullable|file',

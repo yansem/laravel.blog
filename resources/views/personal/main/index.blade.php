@@ -29,7 +29,7 @@
                         <!-- small box -->
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>5</h3>
+                                <h3>{{ $posts->count() }}</h3>
 
                                 <p>Понравившиеся посты</p>
                             </div>

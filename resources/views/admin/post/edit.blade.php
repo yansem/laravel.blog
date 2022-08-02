@@ -5,12 +5,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Dashboard</h1>
+                        <h1 class="m-0">Пост {{ $post->title }}</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Dashboard v1</li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.main.index') }}">Главная</a></li>
+                            <li class="breadcrumb-item active">Пост {{ $post->title }}</li>
                         </ol>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                                     <div class="form-group">
                                         <label for="title">Название поста</label>
                                         <input type="text" class="form-control" id="title" name="title"
-                                               placeholder="Введите название поста" value="{{ old('title', 
+                                               placeholder="Введите название поста" value="{{ old('title',
                                                $post->title)
                                                }}">
                                         @error('title')

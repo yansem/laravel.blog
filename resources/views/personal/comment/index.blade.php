@@ -24,12 +24,52 @@
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
-                <!-- Main row -->
                 <div class="row">
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Комментарии</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body table-responsive p-0">
+                                <table class="table table-hover text-nowrap">
+                                    <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Сообщение</th>
+                                        <th colspan="3" class="text-center">Действие</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($comments as $comment)
+                                        <tr>
+                                            <td>{{ $comment->id }}</td>
+                                            <td>{{ $comment->message }}</td>
+                                            <td class="text-center">
+                                                <a href="{{ route('personal.comment.edit', $comment->id) }}"><i
+                                                        class="fa fa-pen text-success"></i></a>
+                                            </td>
+                                            <td class="text-center">
+                                                <form action="{{ route('personal.comment.destroy', $comment->id) }}"
+                                                      method="post">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button type="submit" class="border-0 bg-transparent"><i class="fas fa-times
+                                                    text-danger"></i></button>
 
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                    </div>
+                    <div></div>
                 </div>
-                <!-- /.row (main row) -->
-            </div><!-- /.container-fluid -->
+            </div>
         </section>
         <!-- /.content -->
     </div>

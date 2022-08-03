@@ -26,6 +26,19 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('main.index') }}">Блог</a>
                     </li>
+                    @guest
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('personal.main.index') }}">Войти</a>
+                    </li>
+                    @endguest
+                    @auth
+                        <li class="nav-item">
+                            <form action="{{ route('logout') }}" method="post">
+                                @csrf
+                                <input type="submit" class="nav-link bg-transparent border-0" value="Выйти">
+                            </form>
+                        </li>
+                    @endauth
                 </ul>
             </div>
         </nav>

@@ -15,6 +15,7 @@
                         <a href="{{ route('post.show', $post->id) }}" class="blog-post-permalink">
                             <h6 class="blog-post-title">{{ $post->title }}</h6>
                         </a>
+                                @auth
                                 <div class="d-flex">
                                     <p>{{ $post->likedPosts->count() }}</p>
                                     <form action="{{ route('post.like.store', $post->id) }}" method="post">
@@ -28,6 +29,13 @@
                                         </button>
                                     </form>
                                 </div>
+                                @endauth
+                                @guest
+                                    <div class="d-flex">
+                                        <p>{{ $post->likedPosts->count() }}</p>
+                                        <i class="far fa-heart"></i>
+                                    </div>
+                                @endguest
 
 
                             </div>

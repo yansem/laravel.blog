@@ -12,6 +12,7 @@
             <section class="post-content">
                 {!! $post->content !!}
             </section>
+            @auth
             <div class="row d-flex mx-auto">
                 <p>{{ $post->likedPosts->count() }}</p>
                 <form action="{{ route('post.like.store', $post->id) }}" method="post">
@@ -25,6 +26,13 @@
                     </button>
                 </form>
             </div>
+            @endauth
+            @guest
+                <div class="d-flex">
+                    <p>{{ $post->likedPosts->count() }}</p>
+                    <i class="far fa-heart"></i>
+                </div>
+            @endguest
             <div class="row">
                 <div class="col-lg-9 mx-auto">
                     <section class="related-posts">

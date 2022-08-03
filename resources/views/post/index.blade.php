@@ -11,9 +11,26 @@
                             <img src="{{ asset('assets/images/blog_1.jpg')}}" alt="blog post">
                         </div>
                         <p class="blog-post-category">Blog post</p>
+                            <div class="d-flex justify-content-between">
                         <a href="{{ route('post.show', $post->id) }}" class="blog-post-permalink">
                             <h6 class="blog-post-title">{{ $post->title }}</h6>
                         </a>
+                                <div class="d-flex">
+                                    <p>{{ $post->likedPosts->count() }}</p>
+                                    <form action="{{ route('post.like.store', $post->id) }}" method="post">
+                                        @csrf
+                                        <button type="submit" class="border-0 bg-transparent">
+                                            @if($post->likedPosts->contains(auth()->user()->id))
+                                                <i class="fas fa-heart"></i>
+                                            @else
+                                                <i class="far fa-heart"></i>
+                                            @endif
+                                        </button>
+                                    </form>
+                                </div>
+
+
+                            </div>
                     </div>
                     @endforeach
                 </div>

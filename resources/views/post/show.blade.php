@@ -12,10 +12,23 @@
             <section class="post-content">
                 {!! $post->content !!}
             </section>
+            <div class="row d-flex mx-auto">
+                <p>{{ $post->likedPosts->count() }}</p>
+                <form action="{{ route('post.like.store', $post->id) }}" method="post">
+                    @csrf
+                    <button type="submit" class="border-0 bg-transparent">
+                        @if($post->likedPosts->contains(auth()->user()->id))
+                            <i class="fas fa-heart"></i>
+                        @else
+                            <i class="far fa-heart"></i>
+                        @endif
+                    </button>
+                </form>
+            </div>
             <div class="row">
                 <div class="col-lg-9 mx-auto">
                     <section class="related-posts">
-                        <h2 class="section-title mb-4" data-aos="fade-up">Related Posts</h2>
+                        <h2 class="section-title mb-4" data-aos="fade-up">Похожие посты</h2>
                         <div class="row">
                             @foreach($relatedPosts as $relatedPost)
                                 <div class="col-md-4" data-aos="fade-right" data-aos-delay="100">
